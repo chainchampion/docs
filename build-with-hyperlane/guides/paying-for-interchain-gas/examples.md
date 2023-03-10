@@ -14,7 +14,7 @@ IInterchainGasPaymaster igp = IInterchainGasPaymaster(
 );
 
 function sendAndPayForMessage() external payable {
-    uint256 messageId = mailbox.dispatch(/* ... */);
+    bytes32 messageId = mailbox.dispatch(/* ... */);
     igp.payForGas{ value: msg.value }(
         messageId, // The ID of the message that was just dispatched
         destinationDomain, // The destination domain of the message
